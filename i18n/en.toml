@@ -1,0 +1,47 @@
+[comments_label]
+other = 'Comments'
+
+[comments_input_placeholder]
+other = 'Type a message'
+
+[comments_send]
+other = 'Send'
+
+[camera_img_alt_text]
+other = 'Click to take a photo'
+
+[thumbnails_add_picture_alt_text]
+other = 'Add picture'
+
+[issue_info_last_updated]
+other = 'Last modified'
+
+[issue_info_address]
+other = 'Location (nearby)'
+
+[issue_info_last_messages]
+other = 'Recent messages'
+
+[issue_button_show_messages]
+other = 'Messages'
+
+[settings_server]
+other = 'Server'
+
+[settings_user]
+other = 'Username'
+
+[settings_password]
+other = 'Password'
+
+[titlebar_button_menu]
+other = 'Menu'
+
+[titlebar_button_back]
+other = 'Back'
+
+[titlebar_button_map]
+other = 'Map'
+
+[titlebar_button_refresh]
+other = 'Refresh'

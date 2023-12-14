@@ -1,0 +1,7 @@
+{{- if .Site.Params.settings.authFields }}
+<h2>{{ i18n "settings_server" }}</h2>
+<fieldset>
+	<input id="settings_user" type="text" autocomplete="on" placeholder="{{ i18n "settings_user" }}" />
+	<input id="settings_pwd" type="password" autocomplete="on" placeholder="{{ i18n "settings_password" }}" />
+</fieldset>
+{{- end }}

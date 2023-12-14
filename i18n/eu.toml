@@ -1,0 +1,47 @@
+[comments_label]
+other = 'Oharrak'
+
+[comments_input_placeholder]
+other = 'Mezua idatzi'
+
+[comments_send]
+other = 'Bidali'
+
+[camera_img_alt_text]
+other = 'Sakatu argazkia ateratzeko'
+
+[thumbnails_add_picture_alt_text]
+other = 'Argazkia gehitu'
+
+[issue_info_last_updated]
+other = 'Azken aldaketa'
+
+[issue_info_address]
+other = 'Kokapena (ingurukoa)'
+
+[issue_info_last_messages]
+other = 'Mezu berrienak'
+
+[issue_button_show_messages]
+other = 'Mezuak'
+
+[settings_server]
+other = 'Zerbitzaria'
+
+[settings_user]
+other = 'Erabiltzailea'
+
+[settings_password]
+other = 'Pasahitza'
+
+[titlebar_button_menu]
+other = 'Menua'
+
+[titlebar_button_back]
+other = 'Atzera'
+
+[titlebar_button_map]
+other = 'Mapa'
+
+[titlebar_button_refresh]
+other = 'Eguneratu'

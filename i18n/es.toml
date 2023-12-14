@@ -1,0 +1,47 @@
+[comments_label]
+other = 'Observaciones'
+
+[comments_input_placeholder]
+other = 'Escribe un mensaje'
+
+[comments_send]
+other = 'Enviar'
+
+[camera_img_alt_text]
+other = 'Pulsa para sacar una foto'
+
+[thumbnails_add_picture_alt_text]
+other = 'Añadir foto'
+
+[issue_info_last_updated]
+other = 'Última modificación'
+
+[issue_info_address]
+other = 'Localización (aproximada)'
+
+[issue_info_last_messages]
+other = 'Mensajes recientes'
+
+[issue_button_show_messages]
+other = 'Mensajes'
+
+[settings_server]
+other = 'Servidor'
+
+[settings_user]
+other = 'Usuario'
+
+[settings_password]
+other = 'Contraseña'
+
+[titlebar_button_menu]
+other = 'Menú'
+
+[titlebar_button_back]
+other = 'Atrás'
+
+[titlebar_button_map]
+other = 'Mapa'
+
+[titlebar_button_refresh]
+other = 'Actualizar'

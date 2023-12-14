@@ -1,0 +1,41 @@
+baseURL = "https://example.org/"
+defaultContentLanguage = "eu"
+defaultContentLanguageInSubdir = true
+title = "HorKonpon"
+
+enableGitInfo = true
+disableHugoGeneratorInject = true
+disableLiveReload = true
+disableKinds = ["RSS", "404", "taxonomy", "taxonomyTerm", "section", "robotsTXT"]
+
+[markup.goldmark.extensions]
+linkify = false
+
+[markup.goldmark.parser]
+autoHeadingID = false
+
+[markup.goldmark.renderer]
+xHTML = true
+
+[Params]
+scripts = ['app.js', 'pages/menu.js', 'pages/new.js', 'pages/sent.js', 'pages/show.js', 'pages/messages.js', 'pages/settings.js', 'rest_client.js', 'api_client.js', 'classes.js', 'camera.js', 'geolocation.js', 'i18n.js', 'map.js']
+
+[Params.settings]
+authFields = false
+apiUrl = "https://example.org/api"
+apiRealm = ""
+
+[Languages.en]
+contentDir = "content/en"
+[Languages.en.Params]
+privacyUrl = "https://example.org/en/privacy/"
+
+[Languages.es]
+contentDir = "content/es"
+[Languages.es.Params]
+privacyUrl = "https://example.org/es/privacy/"
+
+[Languages.eu]
+contentDir = "content/eu"
+[Languages.eu.Params]
+privacyUrl = "https://example.org/eu/privacy/"

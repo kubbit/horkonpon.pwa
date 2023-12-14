@@ -1,0 +1,29 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{{- $regularPages := ("home") -}}
+{{- range where .Data.Pages ".Kind" "in" $regularPages }}
+{{- $page := . }}
+	{{- $index := true }}
+	{{- if and (isset $page.Params "iserror") ($page.Params.iserror) }}
+	{{- 	$index = false }}
+	{{- else if and (isset $page.Params "noindex") ($page.Params.noindex) }}
+	{{- 	$index = false }}
+	{{- end }}
+	{{- if $index }}
+	<url>
+		<loc>{{ $page.Permalink }}</loc>
+		{{- with $page.Lastmod }}
+		<lastmod>{{ safeHTML ( .Format "2006-01-02T15:04:05-07:00" ) }}</lastmod>
+		{{- end }}
+		{{- with $page.Sitemap.ChangeFreq }}
+		<changefreq>{{ . }}</changefreq>
+		{{- end }}
+		{{- with $page.Sitemap.Priority }}
+			{{- if ge . 0 }}
+		<priority>{{ . }}</priority>
+			{{- end }}
+		{{- end }}
+	</url>
+	{{- end }}
+{{- end }}
+</urlset>

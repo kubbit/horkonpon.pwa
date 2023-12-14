@@ -1,0 +1,29 @@
+{
+	"id": "?id=0",
+	"name": "HorKonpon",
+	"short_name": "HorKonpon",
+	"start_url": "/",
+	"scope": "/",
+	"display": "standalone",
+	"orientation": "portrait",
+	"background_color": "#2b83a3",
+	"theme_color": "#2b83a3",
+	"icons":
+	[
+ 		{
+			"src": "/img/logo.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+ 		{
+			"src": "/img/logo-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		},
+		{
+			"src": "/img/logo.svg",
+			"sizes": "any",
+			"type": "image/svg+xml"
+		}
+	]
+}

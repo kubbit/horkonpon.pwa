@@ -1,0 +1,67 @@
+{{- if hugo.IsProduction }}
+{{- .Scratch.Set "version" (os.Getenv "GIT_REVISION") }}
+{{- else }}
+{{- .Scratch.Set "version" now.Unix }}
+{{- end -}}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ .Site.Language }}" lang="{{ .Site.Language }}" data-version="{{ .Scratch.Get "version" }}">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="robots" content="index, nofollow" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="HandheldFriendly" content="true" />
+		<link rel="icon" type="image/svg+xml" href="{{ "/img/" | relURL }}logo.svg" />
+		<link rel="icon" type="image/png" href="{{ "/img/" | relURL }}logo.png" />
+		<link rel="apple-touch-icon" href="{{ "/img/" | relURL }}logo.png" />
+{{- if .IsTranslated }}
+		<link rel="alternate" hreflang="{{ .Site.Language }}" href="{{ .Permalink }}" title="{{ .Title }}" />
+	{{- range .Translations }}
+		<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}" title="{{ .Title }}" />
+	{{- end}}
+{{- end }}
+		<title>{{ .Title }}</title>
+		<link rel="stylesheet" href="{{ "/css/" | relURL }}main.css?v={{ .Scratch.Get "version" }}" type="text/css" />
+		<link rel="stylesheet" href="{{ "/leaflet/" | relURL }}leaflet.css" />
+		<link rel="manifest" href="{{ "manifest.json" | relURL }}">
+{{- range union .Site.Params.scripts .Page.Params.scripts }}
+	{{- $.Scratch.Add "scripts" (slice (resources.Get (printf "%s%s" "/js/" .))) }}
+{{- end }}
+{{- $jsFiles := $.Scratch.Get "scripts" | resources.Concat "js/scripts.js" | resources.ExecuteAsTemplate "js/scripts.js" . | minify }}
+		<script type="text/javascript" src="{{ $jsFiles.RelPermalink }}?v={{ .Scratch.Get "version" }}" defer="defer"></script>
+{{- $serviceWorker := resources.Get "/sw.js" | resources.ExecuteAsTemplate "/sw.js" . }}
+		<script type="text/javascript" src="{{ $serviceWorker.RelPermalink }}" defer="defer"></script>
+		<script type="text/javascript" src="/js/main.js?v={{ .Scratch.Get "version" }}" defer="defer"></script>
+		<script type="text/javascript" src="/leaflet/leaflet.js" defer="defer"></script>
+	</head>
+	<body>
+		<header>
+			<section class="titleBar">
+				<span id="btMenuToggle"><img src="/img/menu.svg" alt="{{ i18n "titlebar_button_menu" }}" /></span>
+				<span id="btBack" class="hidden"><img src="/img/arrow-left.svg" alt="{{ i18n "titlebar_button_back" }}" /></span>
+				<span id="titleBar">{{ .Title }}</span>
+				<span id="actions">
+					<img id="actionMap" class="hidden" src="/img/map-marker-radius.svg" alt="{{ i18n "titlebar_button_map" }}" />
+					<img id="actionRefresh" class="hidden" src="/img/sync.svg" alt="{{ i18n "titlebar_button_refresh" }}" />
+				</span>
+			</section>
+			<section id="menu" class="sidebar collapsed">
+				<img src="/img/logo-drawer.png" />
+				<nav>
+{{- range .Site.Menus.main }}
+					<a href="#{{ .Page.File.BaseFileName }}">{{ .Name }}</a>
+{{- end }}
+				</nav>
+			</section>
+		</header>
+		<dialog class="hidden"></dialog>
+		<div id="mapa" class="collapsed"><button class="close">X</button></div>
+		<main id="sections">
+{{- range where .CurrentSection.RegularPages "Params.iserror" "!=" true }}
+	{{- $page := . }}
+			<section id="{{- $page.File.BaseFileName }}" class="{{- $page.File.BaseFileName }}" data-title="{{- $page.Name }}">
+	{{- $page.Content }}
+			</section>
+{{- end }}
+		</main>
+	</body>
+</html>
