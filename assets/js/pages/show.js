@@ -19,7 +19,10 @@ Pages.Show = function(root)
 	this.pictureUrl = null;
 
 	this.btMessages.addEventListener('click', this.showMessages.bind(this));
-	this.imgPicture.addEventListener('click', this.showCamera.bind(this));
+	this.imgPicture.addEventListener('click', function()
+	{
+		this.camera.show();
+	}.bind(this)); // fix for safari
 	this.btAddPicture.addEventListener('click', this.showCamera.bind(this));
 	this.camera.onAccept = this.acceptPicture.bind(this);
 };

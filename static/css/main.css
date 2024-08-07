@@ -562,6 +562,7 @@ button.actionButton
 }
 .issues li.header
 {
+	display: block;
 	background-color: #33b5e5;
 	color: white;
 	padding: 0.25em 0.5em;

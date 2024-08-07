@@ -28,4 +28,4 @@ Pasaiako Udala
 
 - ![Kubbit](/img/kubbit.png)
 Kubbit
-[https://kubbit.com](https://kubbit.com/eu/)
+[https://kubbit.com](https://kubbit.com)

@@ -28,4 +28,4 @@ Ayuntamiento de Pasaia
 
 - ![Kubbit](/img/kubbit.png)
 Kubbit
-[https://kubbit.com](https://kubbit.com/eu/)
+[https://kubbit.com](https://kubbit.com/es/)

@@ -19,7 +19,10 @@ Pages.New = function(root)
 	this.map = null;
 
 	this.btSend.addEventListener('click', this.send.bind(this));
-	this.imgPicture.addEventListener('click', this.showCamera.bind(this));
+	this.imgPicture.addEventListener('click', function()
+	{
+		this.camera.show();
+	}.bind(this)); // fix for safari
 	this.camera.onAccept = this.acceptPicture.bind(this);
 
 	this.geolocation = new Geolocation();
